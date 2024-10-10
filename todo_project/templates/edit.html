@@ -1,0 +1,32 @@
+<html>
+    <head>
+     <title>Todo details</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+    <h2 style="text-align: center;">TODO EDIT</h2>
+    <form method="POST" style="padding-inline: 40%;padding-block: 2%;">
+
+        {% csrf_token %}      
+               
+        <label for="exampleFormControlInput1" class="form-label">Title:</label>
+            <input type="text" id="title" name="title" style="margin-left: 18%;" value=" {{ data.title }}"><br><br>
+ 
+            <label for="exampleFormControlInput1" class="form-label">Details: </label>
+            <textarea id="details" name="details" rows="4" cols="40" style="margin-left: 30%;" value="{{ data.details }}"></textarea><br><br>
+
+            <label for="exampleFormControlInput1" class="form-label">Start Date:</label>
+            <input type="date" id="startdate" name="startdate" style="margin-left: 5%;" value=" {{ data.startdate }}"><br><br>
+
+            <label for="exampleFormControlInput1" class="form-label">End Date: </label>
+            <input type="date" id="enddate" name="enddate" style="margin-left: 6%;" value="{{ data.enddate }}"><br><br>
+
+            <input type="submit" value="Save Changes" class="btn btn-success" style="margin-left: 20%;">
+
+            <a href="{% url 'todo'}">Back To List</a>
+        
+        </form>
+
+</body>
+</html>
